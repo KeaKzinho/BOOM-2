@@ -1,14 +1,24 @@
-import { ATTACKS, LIST_EFFECTS, playerOne, playerTwo } from "../support/values.js";
+import { ATTACKS, GAME_STATUS, LIST_EFFECTS, playerOne, playerTwo } from "../support/values.js";
 import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar.js";
 import { playerRound } from "../app.js";
+import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer.js";
 export function attack(mainPlayer, secondPlayer, attackType) {
     const criticalAttack = ATTACKS[attackType].damage;
     const chanceCriticalDamage = ATTACKS[attackType].chanceCriticalDamage;
     const criticalDamage = randomAttackDamage(chanceCriticalDamage + mainPlayer.extraChanceCriticalDamage, criticalAttack);
-    const totalDamage = mainPlayer.attack + mainPlayer.extraDamageBase + criticalDamage;
+    const extraDamage = (mainPlayer.extraDamageBase + criticalDamage);
+    const totalDamage = mainPlayer.attack + extraDamage;
+    GAME_STATUS.typeAttack = attackType;
+    GAME_STATUS.extraDamage = extraDamage;
+    GAME_STATUS.totalDamage = totalDamage;
     if (!secondPlayer.defense || mainPlayer.defenseBreaker) {
         applyDamage(secondPlayer, totalDamage);
+        GAME_STATUS.defenseDamage = false;
     }
+    else {
+        GAME_STATUS.defenseDamage = true;
+    }
+    notifyAttack(mainPlayer, secondPlayer);
     mainPlayer.extraChanceCriticalDamage = 0;
     mainPlayer.extraDamageBase = 0;
     mainPlayer.defenseBreaker = false;
@@ -16,10 +26,12 @@ export function attack(mainPlayer, secondPlayer, attackType) {
 }
 export function defense(mainPlayer) {
     mainPlayer.defense = true;
+    notifyDefense(mainPlayer);
 }
 export function randomizeEffect(mainPlayer, secondPlayer) {
     const randomIndex = Math.floor(Math.random() * LIST_EFFECTS.length);
     const keyEffect = LIST_EFFECTS[randomIndex];
+    notifyEffectApplied(mainPlayer, keyEffect.toString());
     if (keyEffect.toString() === "applyEnemyIncreaseBaseDamage") {
         applyEffect["applyIncreaseBaseDamage"](secondPlayer);
         return;

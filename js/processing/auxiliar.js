@@ -1,6 +1,7 @@
 import { EFFECTS } from "../support/values.js";
-export function createPlayer() {
+export function createPlayer(name = "Jogador") {
     return {
+        name: name,
         life: 100,
         maxLife: 100,
         attack: 5,

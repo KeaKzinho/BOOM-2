@@ -1,4 +1,5 @@
 export interface Player {
+    name: string,
     life: number
     maxLife: number
     attack: number
@@ -38,4 +39,13 @@ export interface Attacks {
     weak: { damage: number, chanceCriticalDamage: number }
     normal: { damage: number, chanceCriticalDamage: number }
     strong: { damage: number, chanceCriticalDamage: number }
+}
+
+
+export interface Game {
+    on: boolean
+    typeAttack: string | null
+    extraDamage: number | null
+    totalDamage: number | null
+    defenseDamage: boolean | null
 }

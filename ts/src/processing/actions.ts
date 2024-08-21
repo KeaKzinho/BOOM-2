@@ -1,7 +1,8 @@
-import { ATTACKS, LIST_EFFECTS, playerOne, playerTwo } from "../support/values"
+import { ATTACKS, GAME_STATUS, LIST_EFFECTS, playerOne, playerTwo } from "../support/values"
 import { Player } from "../support/interfaces"
 import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar"
 import { playerRound } from "../app"
+import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer"
 
 
 export function attack(mainPlayer: Player, secondPlayer: Player, attackType: string) {
@@ -10,12 +11,23 @@ export function attack(mainPlayer: Player, secondPlayer: Player, attackType: str
     const chanceCriticalDamage:number = (ATTACKS as any)[attackType].chanceCriticalDamage
     const criticalDamage = randomAttackDamage(chanceCriticalDamage+mainPlayer.extraChanceCriticalDamage, criticalAttack)
     
-    const totalDamage = mainPlayer.attack + mainPlayer.extraDamageBase + criticalDamage
+    const extraDamage = (mainPlayer.extraDamageBase + criticalDamage)
+    const totalDamage = mainPlayer.attack + extraDamage
+
+    GAME_STATUS.typeAttack = attackType
+    GAME_STATUS.extraDamage = extraDamage
+    GAME_STATUS.totalDamage = totalDamage
 
     if (!secondPlayer.defense || mainPlayer.defenseBreaker){
         applyDamage(secondPlayer, totalDamage)  
+        GAME_STATUS.defenseDamage = false
+        
+    } else {
+        GAME_STATUS.defenseDamage = true
     }
 
+    notifyAttack(mainPlayer, secondPlayer)
+    
     mainPlayer.extraChanceCriticalDamage = 0
     mainPlayer.extraDamageBase = 0
     mainPlayer.defenseBreaker = false
@@ -25,6 +37,7 @@ export function attack(mainPlayer: Player, secondPlayer: Player, attackType: str
 
 export function defense(mainPlayer: Player){
     mainPlayer.defense = true
+    notifyDefense(mainPlayer)
 }
 
 
@@ -32,11 +45,13 @@ export function randomizeEffect(mainPlayer: Player, secondPlayer: Player) {
     const randomIndex = Math.floor(Math.random() * LIST_EFFECTS.length)
     const keyEffect = LIST_EFFECTS[randomIndex] as keyof typeof applyEffect
     
+    notifyEffectApplied(mainPlayer, keyEffect.toString())
+    
     if (keyEffect.toString() === "applyEnemyIncreaseBaseDamage"){
         applyEffect["applyIncreaseBaseDamage"](secondPlayer)
         return
     }
-
+    
     applyEffect[keyEffect](mainPlayer)
 }
 

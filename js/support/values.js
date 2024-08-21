@@ -1,6 +1,6 @@
 import { createPlayer } from "../processing/auxiliar.js";
-export let playerOne = createPlayer();
-export let playerTwo = createPlayer();
+export let playerOne = createPlayer("Player 1");
+export let playerTwo = createPlayer("Player 2");
 export const ATTACKS = {
     weak: { damage: 10, chanceCriticalDamage: 0.80 },
     normal: { damage: 25, chanceCriticalDamage: 0.50 },
@@ -37,8 +37,50 @@ export const LIST_EFFECTS = [
     "applyDecreaseMaxLife",
     "applyDefenseBreaker"
 ];
+export const LIST_EFFECTS_MESSAGE = {
+    applyMaxChanceCriticalDamage() {
+        return "Chance de acerto aumentada para o máximo";
+    },
+    applyMinChanceCriticalDamage() {
+        return "Chance de acerto reduzida para o mínimo";
+    },
+    applyIncreaseChanceCriticalDamage() {
+        return "Chance de acerto aumentada";
+    },
+    applyDecreaseChanceCriticalDamage() {
+        return "Chance de acerto reduzida";
+    },
+    applyIncreaseBaseDamage() {
+        return "Dano base aumentado";
+    },
+    applyEnemyIncreaseBaseDamage() {
+        return "Dano base do INIMIGO aumentado";
+    },
+    applyIncreaseLife() {
+        return "Vida recuperada";
+    },
+    applyDecreaseLife() {
+        return "Vida perdida";
+    },
+    applyIncreaseMaxLife() {
+        return "Vida máxima aumentada";
+    },
+    applyDecreaseMaxLife() {
+        return "Vida maxima reduzida";
+    },
+    applyDefenseBreaker() {
+        return "Quebra de defesa";
+    },
+};
 export const ACCEPT_KEYS = ["q", "w", "e", "a", "s", "u", "i", "o", "k", "l"];
 export const PLAYER_ONE_KEYS = ["q", "w", "e", "a", "s"];
 export const PLAYER_TWO_KEYS = ["u", "i", "o", "k", "l"];
 export const RANDOMIZE_KEYS = ["s", "l"];
+export const GAME_STATUS = {
+    on: false,
+    typeAttack: null,
+    extraDamage: null,
+    totalDamage: null,
+    defenseDamage: null
+};
 //# sourceMappingURL=values.js.map

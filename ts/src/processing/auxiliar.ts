@@ -2,8 +2,9 @@ import { EFFECTS } from "../support/values"
 import { Player } from "../support/interfaces"
 
 
-export function createPlayer(): Player {
+export function createPlayer(name:string = "Jogador"): Player {
     return {
+        name: name,
         life: 100,
         maxLife: 100,
         attack: 5,
