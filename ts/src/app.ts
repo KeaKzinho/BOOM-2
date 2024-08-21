@@ -1,4 +1,5 @@
-import { callActions } from './types/consts'
+import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS } from './support/values'
+import { callActions } from './processing/actions'
 
 document.addEventListener("keydown", (event: KeyboardEvent) => {
     handleKeyPress(event.key)
@@ -6,17 +7,13 @@ document.addEventListener("keydown", (event: KeyboardEvent) => {
 
 export var playerRound = 0
 
+
 function handleKeyPress(key: string) {
 
-    const acceptKeys: string[] = ["q","w","e","a","s","u","i","o","k","l"]
-    const playerOneKeys: string[] = ["q","w","e","a","s"]
-    const playerTwoKeys: string[] = ["u","i","o","k","l"]
-    const randomizeKeys: string[] = ["s","l"]
-
-    if ((randomizeKeys.includes(key) && playerRound == 0.5) || (randomizeKeys.includes(key) && playerRound == 1.5)) return
-    if (!acceptKeys.includes(key)) return
-    if (playerRound == 0 && playerTwoKeys.includes(key)) return
-    if (playerRound == 1 && playerOneKeys.includes(key)) return
+    if ((RANDOMIZE_KEYS.includes(key) && playerRound == 0.5) || (RANDOMIZE_KEYS.includes(key) && playerRound == 1.5)) return
+    if (!ACCEPT_KEYS.includes(key)) return
+    if (playerRound == 0 && PLAYER_TWO_KEYS.includes(key)) return
+    if (playerRound == 1 && PLAYER_ONE_KEYS.includes(key)) return
 
     playerRound = (callActions as any)[key]()
 }

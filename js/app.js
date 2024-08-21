@@ -1,20 +1,17 @@
-import { callActions } from './types/consts.js';
+import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS } from './support/values.js';
+import { callActions } from './processing/actions.js';
 document.addEventListener("keydown", (event) => {
     handleKeyPress(event.key);
 });
 export var playerRound = 0;
 function handleKeyPress(key) {
-    const acceptKeys = ["q", "w", "e", "a", "s", "u", "i", "o", "k", "l"];
-    const playerOneKeys = ["q", "w", "e", "a", "s"];
-    const playerTwoKeys = ["u", "i", "o", "k", "l"];
-    const randomizeKeys = ["s", "l"];
-    if ((randomizeKeys.includes(key) && playerRound == 0.5) || (randomizeKeys.includes(key) && playerRound == 1.5))
+    if ((RANDOMIZE_KEYS.includes(key) && playerRound == 0.5) || (RANDOMIZE_KEYS.includes(key) && playerRound == 1.5))
         return;
-    if (!acceptKeys.includes(key))
+    if (!ACCEPT_KEYS.includes(key))
         return;
-    if (playerRound == 0 && playerTwoKeys.includes(key))
+    if (playerRound == 0 && PLAYER_TWO_KEYS.includes(key))
         return;
-    if (playerRound == 1 && playerOneKeys.includes(key))
+    if (playerRound == 1 && PLAYER_ONE_KEYS.includes(key))
         return;
     playerRound = callActions[key]();
 }

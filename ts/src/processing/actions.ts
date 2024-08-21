@@ -1,6 +1,7 @@
-import { ATTACKS, LIST_EFFECTS } from "../types/consts"
-import { Player } from "../types/interfaces"
+import { ATTACKS, LIST_EFFECTS, playerOne, playerTwo } from "../support/values"
+import { Player } from "../support/interfaces"
 import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar"
+import { playerRound } from "../app"
 
 
 export function attack(mainPlayer: Player, secondPlayer: Player, attackType: string) {
@@ -37,4 +38,66 @@ export function randomizeEffect(mainPlayer: Player, secondPlayer: Player) {
     }
 
     applyEffect[keyEffect](mainPlayer)
+}
+
+
+export const callActions = {
+    q(){
+        attack(playerOne, playerTwo, "weak")
+        return 1
+    },
+
+    w(){
+        attack(playerOne, playerTwo, "normal")
+        return 1
+    },
+
+    e(){
+        attack(playerOne, playerTwo, "strong")
+        return 1
+    },
+
+    a(){
+        defense(playerOne)
+        return 1
+    },
+
+    s(){
+        if (playerRound == 0.5){
+            return 1
+        }
+
+        randomizeEffect(playerOne, playerTwo)
+
+        return 0.5
+    },
+
+    u(){
+        attack(playerTwo, playerOne, "weak")
+        return 0
+    },
+
+    i(){
+        attack(playerTwo, playerOne, "normal")
+        return 0
+    },
+
+    o(){
+        attack(playerTwo, playerOne, "strong")
+        return 0
+    },
+
+    k(){
+        defense(playerTwo)
+        return 0
+    },
+
+    l(){
+        if (playerRound == 1.5){
+            return 0
+        }
+
+        randomizeEffect(playerTwo, playerOne)
+        return 1.5
+    }
 }

@@ -1,4 +1,4 @@
-import { EFFECTS } from "../types/consts.js";
+import { EFFECTS } from "../support/values.js";
 export function createPlayer() {
     return {
         life: 100,

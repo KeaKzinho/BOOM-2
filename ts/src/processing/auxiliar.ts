@@ -1,5 +1,6 @@
-import { EFFECTS } from "../types/consts"
-import { Player } from "../types/interfaces"
+import { EFFECTS } from "../support/values"
+import { Player } from "../support/interfaces"
+
 
 export function createPlayer(): Player {
     return {
