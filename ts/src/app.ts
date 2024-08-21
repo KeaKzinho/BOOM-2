@@ -1,6 +1,6 @@
 import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS, GAME_STATUS } from './support/values'
 import { callActions } from './processing/actions'
-import { getNotify, notifyAttack, resetNotify } from './screen/observer'
+import { getNotify, notifyAttack, resetNotify } from './screen/observer/notify'
 
 document.addEventListener("keydown", (event: KeyboardEvent) => {
     handleKeyPress(event.key)

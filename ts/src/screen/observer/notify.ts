@@ -1,7 +1,9 @@
-import { Player } from "../support/interfaces";
-import { GAME_STATUS, LIST_EFFECTS_MESSAGE } from "../support/values";
+import { Player } from "../../support/interfaces";
+import { GAME_STATUS, LIST_EFFECTS_MESSAGE } from "../../support/values";
+
 
 var notify:string = ""
+
 
 export function notifyAttack(mainPlayer : Player, secondPlayer: Player){
 
@@ -21,6 +23,7 @@ export function notifyAttack(mainPlayer : Player, secondPlayer: Player){
 
     if (GAME_STATUS.defenseDamage){
         notify+= `<br> Dano de defendido!!`
+   
     } else if (GAME_STATUS.defenseDamage == false){
         notify+= `<br> Dano de aplicado!!`
     }
@@ -42,6 +45,7 @@ export function notifyDefense(mainPlayer: Player) {
 export function resetNotify(){
     notify = ""
 }
+
 
 export function getNotify(): string{
     return notify

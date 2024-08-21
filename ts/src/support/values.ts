@@ -2,8 +2,8 @@ import { createPlayer } from "../processing/auxiliar"
 import { Attacks, Effects, Game, Player } from "./interfaces"
 
 
-export let playerOne: Player = createPlayer("Player 1")
-export let playerTwo: Player = createPlayer("Player 2")
+export const playerOne: Player = createPlayer("Player 1")
+export const playerTwo: Player = createPlayer("Player 2")
 
 
 export const ATTACKS: Attacks = {

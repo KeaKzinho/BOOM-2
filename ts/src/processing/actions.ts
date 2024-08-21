@@ -2,7 +2,7 @@ import { ATTACKS, GAME_STATUS, LIST_EFFECTS, playerOne, playerTwo } from "../sup
 import { Player } from "../support/interfaces"
 import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar"
 import { playerRound } from "../app"
-import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer"
+import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer/notify"
 
 
 export function attack(mainPlayer: Player, secondPlayer: Player, attackType: string) {

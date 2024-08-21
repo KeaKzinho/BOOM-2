@@ -1,4 +1,4 @@
-import { EFFECTS } from "../support/values"
+import { EFFECTS, playerOne, playerTwo } from "../support/values"
 import { Player } from "../support/interfaces"
 
 
@@ -76,4 +76,9 @@ export function randomAttackDamage(chanceCriticalDamage: number, damage: number)
 
 export function applyDamage(targetPlayer: Player, damage: number){
     targetPlayer.life -= damage
+}
+
+
+export function getPlayers(): Player[]{
+    return [playerOne, playerTwo]
 }
