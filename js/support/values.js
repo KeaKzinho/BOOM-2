@@ -1,6 +1,6 @@
 import { createPlayer } from "../processing/auxiliar.js";
-export let playerOne = createPlayer("Player 1");
-export let playerTwo = createPlayer("Player 2");
+export const playerOne = createPlayer("Player 1");
+export const playerTwo = createPlayer("Player 2");
 export const ATTACKS = {
     weak: { damage: 10, chanceCriticalDamage: 0.80 },
     normal: { damage: 25, chanceCriticalDamage: 0.50 },
@@ -83,4 +83,3 @@ export const GAME_STATUS = {
     totalDamage: null,
     defenseDamage: null
 };
-//# sourceMappingURL=values.js.map

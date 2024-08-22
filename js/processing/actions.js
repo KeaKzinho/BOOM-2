@@ -1,7 +1,7 @@
 import { ATTACKS, GAME_STATUS, LIST_EFFECTS, playerOne, playerTwo } from "../support/values.js";
 import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar.js";
 import { playerRound } from "../app.js";
-import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer.js";
+import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer/notify.js";
 export function attack(mainPlayer, secondPlayer, attackType) {
     const criticalAttack = ATTACKS[attackType].damage;
     const chanceCriticalDamage = ATTACKS[attackType].chanceCriticalDamage;
@@ -86,4 +86,3 @@ export const callActions = {
         return 1.5;
     }
 };
-//# sourceMappingURL=actions.js.map

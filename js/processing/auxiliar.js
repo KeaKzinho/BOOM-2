@@ -1,4 +1,4 @@
-import { EFFECTS } from "../support/values.js";
+import { EFFECTS, playerOne, playerTwo } from "../support/values.js";
 export function createPlayer(name = "Jogador") {
     return {
         name: name,
@@ -57,4 +57,6 @@ export function randomAttackDamage(chanceCriticalDamage, damage) {
 export function applyDamage(targetPlayer, damage) {
     targetPlayer.life -= damage;
 }
-//# sourceMappingURL=auxiliar.js.map
+export function getPlayers() {
+    return [playerOne, playerTwo];
+}

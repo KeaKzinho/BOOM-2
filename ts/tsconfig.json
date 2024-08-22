@@ -5,7 +5,7 @@
       "rootDir": "./src",
       "outDir": "../js",     
       "strict": true,
-      "sourceMap": true
+      "sourceMap": false
     },
     "include": [
       "./src/**/*.ts"

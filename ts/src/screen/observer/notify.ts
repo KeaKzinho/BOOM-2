@@ -27,6 +27,11 @@ export function notifyAttack(mainPlayer : Player, secondPlayer: Player){
     } else if (GAME_STATUS.defenseDamage == false){
         notify+= `<br> Dano de aplicado!!`
     }
+
+    GAME_STATUS.typeAttack = null
+    GAME_STATUS.extraDamage = null
+    GAME_STATUS.totalDamage = null
+    GAME_STATUS.defenseDamage = null
 }
 
 

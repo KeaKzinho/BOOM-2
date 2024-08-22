@@ -1,4 +1,4 @@
-import { GAME_STATUS, LIST_EFFECTS_MESSAGE } from "../support/values.js";
+import { GAME_STATUS, LIST_EFFECTS_MESSAGE } from "../../support/values.js";
 var notify = "";
 export function notifyAttack(mainPlayer, secondPlayer) {
     notify = `<br> Jogador ${mainPlayer.name} ataca o ${secondPlayer.name}`;
@@ -17,6 +17,10 @@ export function notifyAttack(mainPlayer, secondPlayer) {
     else if (GAME_STATUS.defenseDamage == false) {
         notify += `<br> Dano de aplicado!!`;
     }
+    GAME_STATUS.typeAttack = null;
+    GAME_STATUS.extraDamage = null;
+    GAME_STATUS.totalDamage = null;
+    GAME_STATUS.defenseDamage = null;
 }
 export function notifyEffectApplied(mainPlayer, effect) {
     const effectMessage = LIST_EFFECTS_MESSAGE[effect]();
@@ -31,4 +35,3 @@ export function resetNotify() {
 export function getNotify() {
     return notify;
 }
-//# sourceMappingURL=observer.js.map
