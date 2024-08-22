@@ -1,5 +1,6 @@
 import { EFFECTS, playerOne, playerTwo } from "../support/values"
 import { Player } from "../support/interfaces"
+import { playerRound } from "../app"
 
 
 export function createPlayer(name:string = "Jogador"): Player {
@@ -81,4 +82,13 @@ export function applyDamage(targetPlayer: Player, damage: number){
 
 export function getPlayers(): Player[]{
     return [playerOne, playerTwo]
+}
+
+
+export function getRound(): string{
+    if ((playerRound == 0.5) || (playerRound == 0)){
+        return "Player One"
+    }
+
+    return "Player Two"
 }

@@ -1,4 +1,5 @@
 import { EFFECTS, playerOne, playerTwo } from "../support/values.js";
+import { playerRound } from "../app.js";
 export function createPlayer(name = "Jogador") {
     return {
         name: name,
@@ -59,4 +60,10 @@ export function applyDamage(targetPlayer, damage) {
 }
 export function getPlayers() {
     return [playerOne, playerTwo];
+}
+export function getRound() {
+    if ((playerRound == 0.5) || (playerRound == 0)) {
+        return "Player One";
+    }
+    return "Player Two";
 }
