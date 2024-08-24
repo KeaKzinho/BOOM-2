@@ -7,9 +7,9 @@ export const playerTwo: Player = createPlayer("Player 2")
 
 
 export const ATTACKS: Attacks = {
-    weak: {damage: 10, chanceCriticalDamage: 0.78},
-    normal: {damage: 25, chanceCriticalDamage: 0.45},
-    strong: {damage: 35, chanceCriticalDamage: 0.15}
+    weak: {damage: 10, chanceCriticalDamage: 0.65},
+    normal: {damage: 15, chanceCriticalDamage: 0.45},
+    strong: {damage: 25, chanceCriticalDamage: 0.15}
 }
 
 
