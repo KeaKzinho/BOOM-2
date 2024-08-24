@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: "New Amsterdam", sans-serif;
 }
 
 body {
@@ -12,11 +12,193 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background-color: rgb(61, 61, 61);
 }
 
-#screen{
+.screen{
     width: 600px;
-    height: 600px;
+    height: 400px;
     background-color: lightgray;
-    background-image: url("../assets/image/Full\ \(2\).png");
+    box-sizing: border-box;
+    border: 5px solid black;
+}
+
+#start{
+    display: flex;
+    background-image: url("../assets/image/background.png");
+    align-items: center;
+    justify-content: center;
+}
+
+#content{
+    width: 550px;
+    height: 300px;
+    background-image: url("../assets/image/content.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#group-start-buttons{
+    margin-top: 85px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.start-button{
+    border: 0px;
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 20px;
+    padding: 5px;
+    box-sizing: content-box;
+    font-family: 'Squada One', cursive;
+    cursor: pointer;
+}
+
+#start-text{
+    margin-top: 50px;
+    font-family: 'Squada One', cursive;
+    font-size: 20px;
+    color: white;
+}
+
+#george{
+    color: #75E6FF;
+}
+
+#keven{
+    color: #FF9595;
+}
+
+#game{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("../assets/image/background.png");
+}
+
+#score{
+    background-color: black;
+    width: 100%;
+    height: 42px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.player-name{
+    color: white;
+}
+
+#player-name-2{
+    text-align: end;
+}
+
+.life{
+    width: 100%;
+    background-color: red;
+    height: 100%;
+}
+
+#life-bar-2{
+    display: flex;
+    justify-content: end;
+}
+
+#life-bar-1{
+    display: flex;
+    justify-content: start;
+}
+
+#table{
+    width: 467px;
+    height: 255px;
+    background-image: url("../assets/image/table.png");
+}
+
+#message-box{
+    width: 100%;
+    height: 42px;
+    background-color: black;
+    padding: 10px;
+}
+
+#message-text{
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1.1px;
+}
+
+
+#game-over{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../assets/image/game-over-background.png");
+}
+
+.emphasis-gold{
+    color: rgb(223, 223, 0);
+}
+
+.emphasis-green{
+    color: rgb(54, 190, 0);
+}
+
+.emphasis-red{
+    color: rgb(175, 2, 2);
+}
+
+.emphasis-orange{
+    color: rgb(226, 141, 43);
+}
+
+.emphasis-light-orange{
+    color: rgb(253, 197, 133);
+}
+
+.emphasis-light-red{
+    color: rgb(230, 88, 88);
+}
+
+.life-bar{
+    width: 200px;
+    height: 10px;
+    background-color: #F5F5F5;
+}
+
+
+
+#restart{
+    box-sizing: content-box;
+    width: 100px;
+    height: 20px;
+    margin-top: 15px;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1.2px;
+    font-family: 'Squada One';
+    border: 0px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+#game-over-title{
+    font-family: 'Black Han Sans', sans-serif;
+    letter-spacing: 5px;
+    font-size: 50px;
+    color: #FF0000;
+    -webkit-text-stroke: 3px white;
+}
+
+#winner{
+    font-family: 'Squada One';
 }

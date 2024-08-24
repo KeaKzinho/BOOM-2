@@ -1,6 +1,13 @@
 import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS, GAME_STATUS } from './support/values.js';
 import { callActions } from './processing/actions.js';
-import { getNotify, resetNotify } from './screen/observer/notify.js';
+import { showMessageBox } from './screen/state/box.js';
+import { changeLifeBar } from './screen/state/lifeBar.js';
+import { getPlayers } from './processing/auxiliar.js';
+import { gameOver, startGame } from './screen/state/changeScreen.js';
+const startButton = document.getElementById("start-game");
+if (startButton != null) {
+    startButton.onclick = () => startGame();
+}
 document.addEventListener("keydown", (event) => {
     handleKeyPress(event.key);
 });
@@ -17,7 +24,13 @@ function handleKeyPress(key) {
     if (playerRound == 1 && PLAYER_ONE_KEYS.includes(key))
         return;
     playerRound = callActions[key]();
-    let notify = getNotify();
-    console.log(notify);
-    resetNotify();
+    showMessageBox();
+    changeLifeBar();
+    const players = getPlayers();
+    if (players[0].life <= 0) {
+        gameOver(players[1]);
+    }
+    if (players[1].life <= 0) {
+        gameOver(players[0]);
+    }
 }

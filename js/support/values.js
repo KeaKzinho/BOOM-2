@@ -2,9 +2,9 @@ import { createPlayer } from "../processing/auxiliar.js";
 export const playerOne = createPlayer("Player 1");
 export const playerTwo = createPlayer("Player 2");
 export const ATTACKS = {
-    weak: { damage: 10, chanceCriticalDamage: 0.80 },
-    normal: { damage: 25, chanceCriticalDamage: 0.50 },
-    strong: { damage: 35, chanceCriticalDamage: 0.25 }
+    weak: { damage: 10, chanceCriticalDamage: 0.78 },
+    normal: { damage: 25, chanceCriticalDamage: 0.45 },
+    strong: { damage: 35, chanceCriticalDamage: 0.15 }
 };
 export const EFFECTS = {
     damage: {

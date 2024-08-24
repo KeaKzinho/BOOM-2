@@ -1,8 +1,8 @@
-import { ATTACKS, GAME_STATUS, LIST_EFFECTS, playerOne, playerTwo } from "../support/values"
-import { Player } from "../support/interfaces"
-import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar"
-import { playerRound } from "../app"
-import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer/notify"
+import { ATTACKS, GAME_STATUS, LIST_EFFECTS, playerOne, playerTwo } from "../support/values.js"
+import { Player } from "../support/interfaces.js"
+import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar.js"
+import { playerRound } from "../app.js"
+import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer/notify.js"
 
 
 export function attack(mainPlayer: Player, secondPlayer: Player, attackType: string) {

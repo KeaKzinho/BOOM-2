@@ -1,6 +1,6 @@
-import { EFFECTS, playerOne, playerTwo } from "../support/values"
-import { Player } from "../support/interfaces"
-import { playerRound } from "../app"
+import { EFFECTS, playerOne, playerTwo } from "../support/values.js"
+import { Player } from "../support/interfaces.js"
+import { playerRound } from "../app.js"
 
 
 export function createPlayer(name:string = "Jogador"): Player {

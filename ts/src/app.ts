@@ -1,10 +1,22 @@
-import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS, GAME_STATUS } from './support/values'
-import { callActions } from './processing/actions'
-import { getNotify, notifyAttack, resetNotify } from './screen/observer/notify'
+import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS, GAME_STATUS } from './support/values.js'
+import { callActions } from './processing/actions.js'
+import { showMessageBox } from './screen/state/box.js'
+import { changeLifeBar } from './screen/state/lifeBar.js'
+import { getPlayers } from './processing/auxiliar.js'
+import { gameOver, startGame } from './screen/state/changeScreen.js'
+
+
+
+const startButton = document.getElementById("start-game")
+if (startButton != null){
+    startButton.onclick = () => startGame()
+}
+
 
 document.addEventListener("keydown", (event: KeyboardEvent) => {
     handleKeyPress(event.key)
 })
+
 
 export var playerRound = 0
 
@@ -20,7 +32,16 @@ function handleKeyPress(key: string) {
 
     playerRound = (callActions as any)[key]()
 
-    let notify = getNotify()
-    console.log(notify)
-    resetNotify()
+    showMessageBox()
+    changeLifeBar()
+
+    const players = getPlayers()
+    
+    if (players[0].life <= 0){
+        gameOver(players[1])
+    }
+
+    if (players[1].life <= 0){
+        gameOver(players[0])
+    }
 }

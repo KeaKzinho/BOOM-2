@@ -1,11 +1,11 @@
-import { GAME_STATUS } from "../../support/values";
+import { GAME_STATUS } from "../../support/values.js";
 
 
-export function startGame(){
+export function changeGameToOn(){
     GAME_STATUS.on = true
 }
 
 
-export function stopGame(){
+export function changeGameToOff(){
     GAME_STATUS.on = false
 }

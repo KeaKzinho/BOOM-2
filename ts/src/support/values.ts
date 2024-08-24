@@ -1,5 +1,5 @@
-import { createPlayer } from "../processing/auxiliar"
-import { Attacks, Effects, Game, Player } from "./interfaces"
+import { createPlayer } from "../processing/auxiliar.js"
+import { Attacks, Effects, Game, Player } from "./interfaces.js"
 
 
 export const playerOne: Player = createPlayer("Player 1")
@@ -7,9 +7,9 @@ export const playerTwo: Player = createPlayer("Player 2")
 
 
 export const ATTACKS: Attacks = {
-    weak: {damage: 10, chanceCriticalDamage: 0.80},
-    normal: {damage: 25, chanceCriticalDamage: 0.50},
-    strong: {damage: 35, chanceCriticalDamage: 0.25}
+    weak: {damage: 10, chanceCriticalDamage: 0.78},
+    normal: {damage: 25, chanceCriticalDamage: 0.45},
+    strong: {damage: 35, chanceCriticalDamage: 0.15}
 }
 
 
