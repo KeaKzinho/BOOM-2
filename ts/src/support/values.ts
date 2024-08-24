@@ -1,5 +1,5 @@
 import { createPlayer } from "../processing/auxiliar.js"
-import { Attacks, Effects, Game, Player } from "./interfaces.js"
+import { Attacks, Effects, Game, Music, Player } from "./interfaces.js"
 
 
 export const playerOne: Player = createPlayer("Player 1")
@@ -103,4 +103,10 @@ export const GAME_STATUS: Game = {
     extraDamage: null,
     totalDamage: null,
     defenseDamage: null
+}
+
+
+export const MUSIC:Music = {
+    on: true,
+    music: "start menu"
 }

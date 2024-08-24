@@ -83,3 +83,7 @@ export const GAME_STATUS = {
     totalDamage: null,
     defenseDamage: null
 };
+export const MUSIC = {
+    on: true,
+    music: "start menu"
+};

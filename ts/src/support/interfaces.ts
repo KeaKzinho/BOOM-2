@@ -49,3 +49,9 @@ export interface Game {
     totalDamage: number | null
     defenseDamage: boolean | null
 }
+
+
+export interface Music {
+    on: boolean
+    music: string
+}

@@ -1,4 +1,5 @@
 import { changeGameToOff, changeGameToOn } from "../observer/game.js";
+import { changeMusic, stopMusic } from "./music.js";
 export function gameOver(playerWinner) {
     const gameOverDiv = document.getElementById("game-over");
     const gameDiv = document.getElementById("game");
@@ -6,6 +7,7 @@ export function gameOver(playerWinner) {
     if (!gameOverDiv || !gameDiv || !pWinner)
         return;
     changeGameToOff();
+    stopMusic();
     gameDiv.style.display = "none";
     gameOverDiv.style.display = "flex";
     pWinner.innerText = `${playerWinner.name} foi o vencedor!`;
@@ -17,5 +19,6 @@ export function startGame() {
         return;
     startMenu.style.display = "none";
     gameDiv.style.display = "flex";
+    changeMusic("in-game");
     changeGameToOn();
 }
