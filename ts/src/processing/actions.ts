@@ -3,6 +3,7 @@ import { Player } from "../support/interfaces.js"
 import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar.js"
 import { playerRound } from "../app.js"
 import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer/notify.js"
+import { animation } from "../screen/state/animations.js"
 
 
 export function attack(mainPlayer: Player, secondPlayer: Player, attackType: string) {
@@ -26,6 +27,7 @@ export function attack(mainPlayer: Player, secondPlayer: Player, attackType: str
         GAME_STATUS.defenseDamage = true
     }
 
+    animation(attackType, 2000)
     notifyAttack(mainPlayer, secondPlayer)
     
     mainPlayer.extraChanceCriticalDamage = 0

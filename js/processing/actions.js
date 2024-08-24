@@ -2,6 +2,7 @@ import { ATTACKS, GAME_STATUS, LIST_EFFECTS, playerOne, playerTwo } from "../sup
 import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar.js";
 import { playerRound } from "../app.js";
 import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer/notify.js";
+import { animation } from "../screen/state/animations.js";
 export function attack(mainPlayer, secondPlayer, attackType) {
     const criticalAttack = ATTACKS[attackType].damage;
     const chanceCriticalDamage = ATTACKS[attackType].chanceCriticalDamage;
@@ -18,6 +19,7 @@ export function attack(mainPlayer, secondPlayer, attackType) {
     else {
         GAME_STATUS.defenseDamage = true;
     }
+    animation(attackType, 2000);
     notifyAttack(mainPlayer, secondPlayer);
     mainPlayer.extraChanceCriticalDamage = 0;
     mainPlayer.extraDamageBase = 0;
