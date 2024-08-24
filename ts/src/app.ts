@@ -4,6 +4,7 @@ import { showMessageBox } from './screen/state/box.js'
 import { changeLifeBar } from './screen/state/lifeBar.js'
 import { getPlayers } from './processing/auxiliar.js'
 import { gameOver, startGame } from './screen/state/changeScreen.js'
+import { showRoundPlayer } from './screen/observer/game.js'
 
 
 
@@ -34,7 +35,8 @@ function handleKeyPress(key: string) {
 
     showMessageBox()
     changeLifeBar()
-
+    showRoundPlayer()
+    
     const players = getPlayers()
     
     if (players[0].life <= 0){

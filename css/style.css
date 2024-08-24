@@ -91,7 +91,12 @@ body {
     align-items: center;
 }
 
+#player-name-1{
+    border: 2px solid yellow;
+}
+
 .player-name{
+    box-sizing: content-box;
     color: white;
 }
 

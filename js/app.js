@@ -4,6 +4,7 @@ import { showMessageBox } from './screen/state/box.js';
 import { changeLifeBar } from './screen/state/lifeBar.js';
 import { getPlayers } from './processing/auxiliar.js';
 import { gameOver, startGame } from './screen/state/changeScreen.js';
+import { showRoundPlayer } from './screen/observer/game.js';
 const startButton = document.getElementById("start-game");
 if (startButton != null) {
     startButton.onclick = () => startGame();
@@ -26,6 +27,7 @@ function handleKeyPress(key) {
     playerRound = callActions[key]();
     showMessageBox();
     changeLifeBar();
+    showRoundPlayer();
     const players = getPlayers();
     if (players[0].life <= 0) {
         gameOver(players[1]);
