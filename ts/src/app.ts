@@ -1,4 +1,4 @@
-import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS, GAME_STATUS, MUSIC } from './support/values.js'
+import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS, GAME_STATUS, MUSIC, DEFENSE_KEYS } from './support/values.js'
 import { callActions } from './processing/actions.js'
 import { showMessageBox } from './screen/state/box.js'
 import { changeLifeBar } from './screen/state/lifeBar.js'

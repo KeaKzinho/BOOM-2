@@ -25,9 +25,9 @@ export function stopMusic() {
         currentMusic.currentTime = 0;
     }
 }
-export function executeAudioEffect(effect, duration) {
+export function executeAudioEffect(effect, duration, volume = 0.25) {
     const audioEffect = new Audio(`./assets/audio/${effect}.mp3`);
-    audioEffect.volume = 0.25;
+    audioEffect.volume = volume;
     audioEffect.play();
     setTimeout(() => {
         audioEffect.pause();

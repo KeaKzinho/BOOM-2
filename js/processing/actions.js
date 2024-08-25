@@ -19,7 +19,7 @@ export function attack(mainPlayer, secondPlayer, attackType) {
     else {
         GAME_STATUS.defenseDamage = true;
     }
-    animation(attackType, 2000);
+    animation(attackType);
     notifyAttack(mainPlayer, secondPlayer);
     mainPlayer.extraChanceCriticalDamage = 0;
     mainPlayer.extraDamageBase = 0;
@@ -28,11 +28,13 @@ export function attack(mainPlayer, secondPlayer, attackType) {
 }
 export function defense(mainPlayer) {
     mainPlayer.defense = true;
+    animation("defense");
     notifyDefense(mainPlayer);
 }
 export function randomizeEffect(mainPlayer, secondPlayer) {
     const randomIndex = Math.floor(Math.random() * LIST_EFFECTS.length);
     const keyEffect = LIST_EFFECTS[randomIndex];
+    animation("effect");
     notifyEffectApplied(mainPlayer, keyEffect.toString());
     if (keyEffect.toString() === "applyEnemyIncreaseBaseDamage") {
         applyEffect["applyIncreaseBaseDamage"](secondPlayer);

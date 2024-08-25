@@ -38,10 +38,10 @@ export function stopMusic(){
 }
 
 
-export function executeAudioEffect(effect: string, duration: number){
+export function executeAudioEffect(effect: string, duration: number, volume: number = 0.25){
     const audioEffect = new Audio(`./assets/audio/${effect}.mp3`)
     
-    audioEffect.volume = 0.25
+    audioEffect.volume = volume
     audioEffect.play()
 
     setTimeout(()=>{

@@ -95,6 +95,7 @@ export const ACCEPT_KEYS: string[] = ["q","w","e","a","s","u","i","o","k","l"]
 export const PLAYER_ONE_KEYS: string[] = ["q","w","e","a","s"]
 export const PLAYER_TWO_KEYS: string[] = ["u","i","o","k","l"]
 export const RANDOMIZE_KEYS: string[] = ["s","l"]
+export const DEFENSE_KEYS: string[] = ["a","k"]
 
 
 export const GAME_STATUS: Game = {
