@@ -3,6 +3,7 @@ import { Player } from "../support/interfaces.js"
 import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar.js"
 import { playerRound } from "../app.js"
 import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer/notify.js"
+import { animation } from "../screen/state/animations.js"
 
 
 export function attack(mainPlayer: Player, secondPlayer: Player, attackType: string) {
@@ -26,6 +27,7 @@ export function attack(mainPlayer: Player, secondPlayer: Player, attackType: str
         GAME_STATUS.defenseDamage = true
     }
 
+    animation(attackType)
     notifyAttack(mainPlayer, secondPlayer)
     
     mainPlayer.extraChanceCriticalDamage = 0
@@ -37,6 +39,7 @@ export function attack(mainPlayer: Player, secondPlayer: Player, attackType: str
 
 export function defense(mainPlayer: Player){
     mainPlayer.defense = true
+    animation("defense")
     notifyDefense(mainPlayer)
 }
 
@@ -45,6 +48,7 @@ export function randomizeEffect(mainPlayer: Player, secondPlayer: Player) {
     const randomIndex = Math.floor(Math.random() * LIST_EFFECTS.length)
     const keyEffect = LIST_EFFECTS[randomIndex] as keyof typeof applyEffect
     
+    animation("effect")
     notifyEffectApplied(mainPlayer, keyEffect.toString())
     
     if (keyEffect.toString() === "applyEnemyIncreaseBaseDamage"){

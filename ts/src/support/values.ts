@@ -1,5 +1,5 @@
 import { createPlayer } from "../processing/auxiliar.js"
-import { Attacks, Effects, Game, Player } from "./interfaces.js"
+import { Attacks, Effects, Game, Music, Player } from "./interfaces.js"
 
 
 export const playerOne: Player = createPlayer("Player 1")
@@ -7,9 +7,9 @@ export const playerTwo: Player = createPlayer("Player 2")
 
 
 export const ATTACKS: Attacks = {
-    weak: {damage: 10, chanceCriticalDamage: 0.78},
-    normal: {damage: 25, chanceCriticalDamage: 0.45},
-    strong: {damage: 35, chanceCriticalDamage: 0.15}
+    weak: {damage: 10, chanceCriticalDamage: 0.65},
+    normal: {damage: 15, chanceCriticalDamage: 0.45},
+    strong: {damage: 25, chanceCriticalDamage: 0.15}
 }
 
 
@@ -95,6 +95,7 @@ export const ACCEPT_KEYS: string[] = ["q","w","e","a","s","u","i","o","k","l"]
 export const PLAYER_ONE_KEYS: string[] = ["q","w","e","a","s"]
 export const PLAYER_TWO_KEYS: string[] = ["u","i","o","k","l"]
 export const RANDOMIZE_KEYS: string[] = ["s","l"]
+export const DEFENSE_KEYS: string[] = ["a","k"]
 
 
 export const GAME_STATUS: Game = {
@@ -103,4 +104,10 @@ export const GAME_STATUS: Game = {
     extraDamage: null,
     totalDamage: null,
     defenseDamage: null
+}
+
+
+export const MUSIC:Music = {
+    on: true,
+    music: "start menu"
 }

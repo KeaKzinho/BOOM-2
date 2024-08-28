@@ -2,6 +2,7 @@ import { ATTACKS, GAME_STATUS, LIST_EFFECTS, playerOne, playerTwo } from "../sup
 import { applyDamage, applyEffect, randomAttackDamage } from "./auxiliar.js";
 import { playerRound } from "../app.js";
 import { notifyAttack, notifyDefense, notifyEffectApplied } from "../screen/observer/notify.js";
+import { animation } from "../screen/state/animations.js";
 export function attack(mainPlayer, secondPlayer, attackType) {
     const criticalAttack = ATTACKS[attackType].damage;
     const chanceCriticalDamage = ATTACKS[attackType].chanceCriticalDamage;
@@ -18,6 +19,7 @@ export function attack(mainPlayer, secondPlayer, attackType) {
     else {
         GAME_STATUS.defenseDamage = true;
     }
+    animation(attackType);
     notifyAttack(mainPlayer, secondPlayer);
     mainPlayer.extraChanceCriticalDamage = 0;
     mainPlayer.extraDamageBase = 0;
@@ -26,11 +28,13 @@ export function attack(mainPlayer, secondPlayer, attackType) {
 }
 export function defense(mainPlayer) {
     mainPlayer.defense = true;
+    animation("defense");
     notifyDefense(mainPlayer);
 }
 export function randomizeEffect(mainPlayer, secondPlayer) {
     const randomIndex = Math.floor(Math.random() * LIST_EFFECTS.length);
     const keyEffect = LIST_EFFECTS[randomIndex];
+    animation("effect");
     notifyEffectApplied(mainPlayer, keyEffect.toString());
     if (keyEffect.toString() === "applyEnemyIncreaseBaseDamage") {
         applyEffect["applyIncreaseBaseDamage"](secondPlayer);

@@ -1,10 +1,18 @@
-import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS, GAME_STATUS } from './support/values.js'
+import { ACCEPT_KEYS, RANDOMIZE_KEYS, PLAYER_ONE_KEYS, PLAYER_TWO_KEYS, GAME_STATUS, MUSIC, DEFENSE_KEYS } from './support/values.js'
 import { callActions } from './processing/actions.js'
 import { showMessageBox } from './screen/state/box.js'
 import { changeLifeBar } from './screen/state/lifeBar.js'
 import { getPlayers } from './processing/auxiliar.js'
 import { gameOver, startGame } from './screen/state/changeScreen.js'
+import { showRoundPlayer } from './screen/observer/game.js'
+import { changeMusic } from './screen/state/music.js'
 
+
+MUSIC.on = true
+
+document.addEventListener('click', () => {
+    changeMusic('start-menu');
+}, { once: true });
 
 
 const startButton = document.getElementById("start-game")
@@ -34,7 +42,8 @@ function handleKeyPress(key: string) {
 
     showMessageBox()
     changeLifeBar()
-
+    showRoundPlayer()
+    
     const players = getPlayers()
     
     if (players[0].life <= 0){

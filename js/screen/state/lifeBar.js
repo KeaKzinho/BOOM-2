@@ -15,4 +15,10 @@ export function changeLifeBar() {
         lifePlayerTwo = 0;
     lifeBarPlayer1.style.width = `${lifePlayerOne}%`;
     lifeBarPlayer2.style.width = `${lifePlayerTwo}%`;
+    const playerName1 = document.getElementById("player-name-1");
+    const playerName2 = document.getElementById("player-name-2");
+    if (!playerName1 || !playerName2)
+        return;
+    playerName1.innerText = `Player 1 - ${lifePlayerOne}/${playerOne.maxLife}`;
+    playerName2.innerText = `${lifePlayerTwo}/${playerTwo.maxLife} - Player 2`;
 }

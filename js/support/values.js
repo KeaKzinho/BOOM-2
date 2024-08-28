@@ -2,9 +2,9 @@ import { createPlayer } from "../processing/auxiliar.js";
 export const playerOne = createPlayer("Player 1");
 export const playerTwo = createPlayer("Player 2");
 export const ATTACKS = {
-    weak: { damage: 10, chanceCriticalDamage: 0.78 },
-    normal: { damage: 25, chanceCriticalDamage: 0.45 },
-    strong: { damage: 35, chanceCriticalDamage: 0.15 }
+    weak: { damage: 10, chanceCriticalDamage: 0.65 },
+    normal: { damage: 15, chanceCriticalDamage: 0.45 },
+    strong: { damage: 25, chanceCriticalDamage: 0.15 }
 };
 export const EFFECTS = {
     damage: {
@@ -76,10 +76,15 @@ export const ACCEPT_KEYS = ["q", "w", "e", "a", "s", "u", "i", "o", "k", "l"];
 export const PLAYER_ONE_KEYS = ["q", "w", "e", "a", "s"];
 export const PLAYER_TWO_KEYS = ["u", "i", "o", "k", "l"];
 export const RANDOMIZE_KEYS = ["s", "l"];
+export const DEFENSE_KEYS = ["a", "k"];
 export const GAME_STATUS = {
     on: false,
     typeAttack: null,
     extraDamage: null,
     totalDamage: null,
     defenseDamage: null
+};
+export const MUSIC = {
+    on: true,
+    music: "start menu"
 };

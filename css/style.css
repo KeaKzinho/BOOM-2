@@ -91,7 +91,12 @@ body {
     align-items: center;
 }
 
+#player-name-1{
+    border: 2px solid yellow;
+}
+
 .player-name{
+    box-sizing: content-box;
     color: white;
 }
 
@@ -119,6 +124,98 @@ body {
     width: 467px;
     height: 255px;
     background-image: url("../assets/image/table.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-content{
+    height: 80%;
+}
+
+.commands{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.attack-commands, .especial-commands{
+    display: flex;
+    gap: 2px;
+}
+
+
+#player-1-commands{
+    width: 25%;
+}
+
+#animations{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#animation{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 70%;
+    height: 40%;
+}
+
+#player-2-commands{
+    justify-content: end;
+    align-items: end;
+}
+
+.command{
+    width: 30px;
+    height: 45px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#q{
+    background-image: url("../assets/image/commands/q.png");
+}
+
+#w{
+    background-image: url("../assets/image/commands/w.png");
+}
+
+#e{
+    background-image: url("../assets/image/commands/e.png");
+}
+
+#a{
+    background-image: url("../assets/image/commands/a.png");
+}
+
+#s{
+    background-image: url("../assets/image/commands/s.png");
+}
+
+#u{
+    background-image: url("../assets/image/commands/u.png");
+}
+
+#i{
+    background-image: url("../assets/image/commands/i.png");
+}
+
+#o{
+    background-image: url("../assets/image/commands/o.png");
+}
+
+#k{
+    background-image: url("../assets/image/commands/k.png");
+}
+
+#l{
+    background-image: url("../assets/image/commands/l.png");
 }
 
 #message-box{
@@ -141,6 +238,7 @@ body {
     justify-content: center;
     align-items: center;
     background-image: url("../assets/image/game-over-background.png");
+    border: 0px;
 }
 
 .emphasis-gold{

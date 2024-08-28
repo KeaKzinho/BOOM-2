@@ -1,5 +1,6 @@
 import { Player } from "../../support/interfaces.js";
 import { changeGameToOff, changeGameToOn } from "../observer/game.js";
+import { changeMusic, stopMusic } from "./music.js";
 
 
 export function gameOver(playerWinner: Player){
@@ -9,6 +10,7 @@ export function gameOver(playerWinner: Player){
     if (!gameOverDiv || !gameDiv || !pWinner) return
     
     changeGameToOff()
+    stopMusic()
     
     gameDiv.style.display = "none"
     gameOverDiv.style.display = "flex"
@@ -24,5 +26,6 @@ export function startGame(){
     startMenu.style.display = "none"
     gameDiv.style.display = "flex"
 
+    changeMusic("in-game")
     changeGameToOn()
 }
